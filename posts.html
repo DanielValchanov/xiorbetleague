@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="bg">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Постове | Xiorbet Liga</title>
+    <link rel="icon" type="image/svg+xml" href="assets/images/logo.svg" />
+    <link rel="stylesheet" href="assets/css/styles.css" />
+    <script defer src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
+    <script defer src="assets/js/data.js"></script>
+    <script defer src="assets/js/app.js"></script>
+  </head>
+  <body>
+    <header class="site-header">
+      <a class="brand" href="index.html" aria-label="Начало на Xiorbet Liga">
+        <img src="assets/images/logo.jpg" alt="Лого на Xiorbet Liga" />
+        <span><strong>Xiorbet Liga</strong><small>Индивидуално класиране</small></span>
+      </a>
+      <nav class="top-nav" aria-label="Основна навигация">
+        <a href="index.html">Начало</a>
+        <a href="standings.html">Класиране</a>
+        <a href="match.html">Следващ мач</a>
+        <a class="active" href="posts.html">Постове</a>
+        <a href="players.html">Играчи</a>
+      </nav>
+      <a class="icon-link" href="https://www.instagram.com/xiorbetliga/" target="_blank" rel="noreferrer">
+        <i data-lucide="instagram"></i><span>@xiorbetliga</span>
+      </a>
+    </header>
+
+    <main>
+      <section class="page-hero">
+        <div>
+          <p class="eyebrow">Клипове, постове, доказателства</p>
+          <h1>Постове</h1>
+          <p class="page-copy">
+            Всичко важно от профила: reels, седмични таблици, анкети и моменти, които някой ще отрича.
+          </p>
+        </div>
+      </section>
+
+      <section class="panel">
+        <div class="section-heading">
+          <div>
+            <span class="label">От профила</span>
+            <h2>Постове и клипове</h2>
+          </div>
+          <a class="text-link" href="https://www.instagram.com/xiorbetliga/" target="_blank" rel="noreferrer">
+            Instagram <i data-lucide="external-link"></i>
+          </a>
+        </div>
+        <div class="post-list" id="post-list"></div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <span>Xiorbet Liga</span>
+      <span>Архивът помни повече от груповия чат.</span>
+    </footer>
+  </body>
+</html>

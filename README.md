@@ -2,7 +2,7 @@
 
 Където страстта среща липсата на умения.
 
-A small static website for a friendly Saturday football league: individual standings, a countdown to the next match, a suggested team split, player cards, and links to posts from the public Instagram profile [`@xiorbetliga`](https://www.instagram.com/xiorbetliga/).
+A small static multi-page website for a friendly Saturday football league: individual standings, a countdown to the next match, a suggested team split, player cards, and links to posts from the public Instagram profile [`@xiorbetliga`](https://www.instagram.com/xiorbetliga/).
 
 ## What's Inside
 
@@ -11,6 +11,8 @@ A small static website for a friendly Saturday football league: individual stand
 - Suggested split for the next two teams
 - Posts and clips section
 - Short player cards
+- Separate pages for the main sections
+- Google Sheets-powered standings with a local fallback
 - Xiorbet Liga logo and visual identity
 
 ## Run Locally
@@ -29,16 +31,25 @@ http://127.0.0.1:4173/
 
 ## Editing Data
 
-Most league content lives in [`app.js`](app.js):
+Most league content lives in [`assets/js/data.js`](assets/js/data.js):
 
 - `players` controls the table and recent form
+- `sheet` controls the linked Google Sheet
 - `teamSplit` controls the next team split
 - `posts` controls Instagram links
 - `nextMatch` controls match time and venue
 
+For the live table to work, the spreadsheet must be accessible to visitors. If the Google request fails, the site automatically uses the local fallback data in `assets/js/data.js`.
+
 ## Project Files
 
-- [`index.html`](index.html) - page structure
-- [`styles.css`](styles.css) - visual design
-- [`app.js`](app.js) - data and dynamic behavior
-- `617368903_17848038321665505_5586529558101376955_n.jpg` - league logo
+- [`index.html`](index.html) - home page
+- [`standings.html`](standings.html) - individual table
+- [`match.html`](match.html) - countdown and team split
+- [`posts.html`](posts.html) - Instagram posts and clips
+- [`players.html`](players.html) - player cards
+- [`assets/css/styles.css`](assets/css/styles.css) - visual design
+- [`assets/js/data.js`](assets/js/data.js) - league data
+- [`assets/js/app.js`](assets/js/app.js) - rendering and dynamic behavior
+- [`assets/images/logo.jpg`](assets/images/logo.jpg) - league logo
+- [`assets/images/current-ranking.png`](assets/images/current-ranking.png) - source ranking screenshot

@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="bg">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Следващ мач | Xiorbet Liga</title>
+    <link rel="icon" type="image/svg+xml" href="assets/images/logo.svg" />
+    <link rel="stylesheet" href="assets/css/styles.css" />
+    <script defer src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
+    <script defer src="assets/js/data.js"></script>
+    <script defer src="assets/js/app.js"></script>
+  </head>
+  <body>
+    <header class="site-header">
+      <a class="brand" href="index.html" aria-label="Начало на Xiorbet Liga">
+        <img src="assets/images/logo.jpg" alt="Лого на Xiorbet Liga" />
+        <span><strong>Xiorbet Liga</strong><small>Индивидуално класиране</small></span>
+      </a>
+      <nav class="top-nav" aria-label="Основна навигация">
+        <a href="index.html">Начало</a>
+        <a href="standings.html">Класиране</a>
+        <a class="active" href="match.html">Следващ мач</a>
+        <a href="posts.html">Постове</a>
+        <a href="players.html">Играчи</a>
+      </nav>
+      <a class="icon-link" href="https://www.instagram.com/xiorbetliga/" target="_blank" rel="noreferrer">
+        <i data-lucide="instagram"></i><span>@xiorbetliga</span>
+      </a>
+    </header>
+
+    <main>
+      <section class="page-hero">
+        <div>
+          <p class="eyebrow">Следващата събота идва</p>
+          <h1>Мачът</h1>
+          <p class="motto">Където страстта среща липсата на умения</p>
+          <p class="page-copy">Брояч до следващия мач и текущото примерно разделяне на отборите.</p>
+        </div>
+      </section>
+
+      <section class="match-strip" aria-label="Следващ мач">
+        <div>
+          <span class="label">Следващ мач</span>
+          <strong id="next-match-title">Съботен футбол</strong>
+          <small id="next-match-date">Изчисляваме следващия начален час</small>
+        </div>
+        <div class="countdown" id="countdown" aria-live="polite"></div>
+      </section>
+
+      <section class="panel split-card">
+        <div class="section-heading">
+          <div>
+            <span class="label">Следващ split</span>
+            <h2>Баланс на отборите</h2>
+          </div>
+          <a class="text-link" href="standings.html">По таблицата <i data-lucide="arrow-right"></i></a>
+        </div>
+        <div class="teams" id="team-split"></div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <span>Xiorbet Liga</span>
+      <span>Обнови split-а, ако някой пак закъснее.</span>
+    </footer>
+  </body>
+</html>
