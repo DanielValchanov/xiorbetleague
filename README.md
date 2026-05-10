@@ -2,7 +2,7 @@
 
 Където страстта среща липсата на умения.
 
-A small static multi-page website for a friendly Saturday football league: individual standings, a countdown to the next match, a suggested team split, player cards, and links to posts from the public Instagram profile [`@xiorbetliga`](https://www.instagram.com/xiorbetliga/).
+Европейският футбол е на колене. Шепа отбори диктуват правилата със своите безкрайни бюджети и статистически подходи към любимата игра. В опит да се прекъсне този омагьосан кръг, група студенти правят опит да върнат футбола там, където принадлежи - далеч от екселските таблици и близко до сърцата на публиката.
 
 ## What's Inside
 
