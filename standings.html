@@ -5,16 +5,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Класиране | Xiorbet Liga</title>
     <link rel="icon" type="image/svg+xml" href="assets/images/logo.svg" />
-    <link rel="stylesheet" href="assets/css/styles.css" />
+    <link rel="stylesheet" href="assets/css/styles.css?v=photo-cards" />
     <script defer src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
-    <script defer src="assets/js/data.js"></script>
-    <script defer src="assets/js/app.js"></script>
+    <script defer src="assets/js/data.js?v=photo-cards"></script>
+    <script defer src="assets/js/app.js?v=photo-cards"></script>
   </head>
   <body>
     <header class="site-header">
       <a class="brand" href="index.html" aria-label="Начало на Xiorbet Liga">
         <img src="assets/images/logo.jpg" alt="Лого на Xiorbet Liga" />
-        <span><strong>Xiorbet Liga</strong><small>Индивидуално класиране</small></span>
+        <span><strong>Xiorbet Liga</strong></span>
       </a>
       <nav class="top-nav" aria-label="Основна навигация">
         <a href="index.html">Начало</a>
@@ -24,7 +24,12 @@
         <a href="players.html">Играчи</a>
       </nav>
       <a class="icon-link" href="https://www.instagram.com/xiorbetliga/" target="_blank" rel="noreferrer">
-        <i data-lucide="instagram"></i><span>@xiorbetliga</span>
+        <svg class="instagram-logo" aria-hidden="true" viewBox="0 0 24 24">
+          <rect x="3" y="3" width="18" height="18" rx="5"></rect>
+          <circle cx="12" cy="12" r="4"></circle>
+          <circle cx="17.5" cy="6.5" r="1"></circle>
+        </svg>
+        <span>@xiorbetliga</span>
       </a>
     </header>
 
@@ -35,52 +40,37 @@
           <h1>Класиране</h1>
           <p class="page-copy">
             Данните се зареждат от Google Sheet, когато таблицата е публично достъпна.
-            Ако не е, сайтът използва последното локално копие от ranking снимката.
           </p>
           <div class="source-row" data-source-status></div>
         </div>
-        <div class="panel">
-          <span class="label">Критерии</span>
-          <ol class="criteria-list" id="ranking-criteria"></ol>
-        </div>
       </section>
 
-      <section class="two-column">
-        <section class="panel">
-          <div class="section-heading">
-            <div>
-              <span class="label">Кръг 9</span>
-              <h2>Индивидуална таблица</h2>
-            </div>
-            <span class="season-pill">20 играчи</span>
+      <section class="panel">
+        <div class="section-heading">
+          <div>
+            <span class="label">Кръг 9</span>
+            <h2>Индивидуална таблица</h2>
           </div>
-          <div class="table-shell">
-            <table>
-              <thead>
-                <tr>
-                  <th>#</th>
-                  <th>Футболист</th>
-                  <th>Мачове</th>
-                  <th>Победи</th>
-                  <th>Загуби</th>
-                  <th>Win Rate</th>
-                  <th>MVP</th>
-                  <th>Participation</th>
-                </tr>
-              </thead>
-              <tbody id="standings-table"></tbody>
-            </table>
-          </div>
-        </section>
-
-        <aside class="panel">
-          <span class="label">Оригинална снимка</span>
-          <h2>Източник</h2>
-          <p class="page-copy">
-            Оставям я тук като reference, за да може лесно да се сравнява при следващи обновявания.
-          </p>
-          <img class="ranking-image" src="assets/images/current-ranking.png" alt="Текущо класиране от таблица" />
-        </aside>
+          <span class="season-pill">20 играчи</span>
+        </div>
+        <ol class="criteria-list criteria-list-inline" id="ranking-criteria"></ol>
+        <div class="table-shell">
+          <table>
+            <thead>
+              <tr>
+                <th>#</th>
+                <th>Футболист</th>
+                <th>Мачове</th>
+                <th>Победи</th>
+                <th>Загуби</th>
+                <th>Win Rate</th>
+                <th>MVP</th>
+                <th>Participation</th>
+              </tr>
+            </thead>
+            <tbody id="standings-table"></tbody>
+          </table>
+        </div>
       </section>
     </main>
 

@@ -52,4 +52,3 @@ For the live table to work, the spreadsheet must be accessible to visitors. If t
 - [`assets/js/data.js`](assets/js/data.js) - league data
 - [`assets/js/app.js`](assets/js/app.js) - rendering and dynamic behavior
 - [`assets/images/logo.jpg`](assets/images/logo.jpg) - league logo
-- [`assets/images/current-ranking.png`](assets/images/current-ranking.png) - source ranking screenshot

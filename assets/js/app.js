@@ -307,21 +307,109 @@ function renderPlayers() {
 
   target.innerHTML = sortedPlayers()
     .map(
-      (player) => `
-        <article class="player-card">
-          <span class="avatar">${initials(player.name)}</span>
-          <div>
-            <h3>${player.name}</h3>
-            <p class="player-note">${player.wins} победи от ${player.played} мача · ${player.mvp} MVP · ${percent(player.participation)} участие</p>
-            <div class="player-meta">
-              <span class="tag">${percent(winRate(player))} Win Rate</span>
-              <span class="tag">${player.losses} загуби</span>
-            </div>
+      (player, index) => `
+        <article class="player-card" data-player-card data-player-index="${index}" role="button" tabindex="0" aria-expanded="false">
+          <div class="player-card-summary">
+            ${playerImageMarkup(player)}
+            <span>
+              <h3>${player.name}</h3>
+              <p class="player-note">${player.wins} победи от ${player.played} мача · ${player.mvp} MVP · ${percent(player.participation)} участие</p>
+              <span class="player-meta">
+                <span class="tag">${percent(winRate(player))} Win Rate</span>
+                <span class="tag">${player.losses} загуби</span>
+              </span>
+            </span>
           </div>
+          <div class="player-expanded" hidden></div>
         </article>
       `,
     )
     .join("");
+
+  target.addEventListener("click", handlePlayerCardInteraction);
+  target.addEventListener("keydown", (event) => {
+    if (event.key !== "Enter" && event.key !== " ") return;
+
+    const card = event.target.closest("[data-player-card]");
+    if (!card) return;
+
+    event.preventDefault();
+    togglePlayerCard(card, sortedPlayers()[Number(card.dataset.playerIndex)]);
+  });
+}
+
+function handlePlayerCardInteraction(event) {
+  const card = event.target.closest("[data-player-card]");
+  if (!card) return;
+
+  togglePlayerCard(card, sortedPlayers()[Number(card.dataset.playerIndex)]);
+}
+
+function getPlayerProfile(player) {
+  return (
+    leagueData.playerProfiles?.[player.name] || {
+      bio: "Профилът предстои да бъде попълнен. Засега статистиката говори вместо него.",
+      skills: ["Хъс", "Присъствие", "Потенциал"],
+    }
+  );
+}
+
+function playerImageMarkup(player, className = "player-photo") {
+  const profile = getPlayerProfile(player);
+
+  if (profile.image) {
+    return `<img class="${className}" src="${profile.image}" alt="Снимка на ${player.name}" loading="lazy" />`;
+  }
+
+  return `
+    <span class="${className} placeholder" aria-label="Снимка предстои за ${player.name}"></span>
+  `;
+}
+
+function togglePlayerCard(card, player) {
+  const expanded = card?.querySelector(".player-expanded");
+  if (!card || !expanded) return;
+
+  const isOpen = card.classList.contains("open");
+
+  if (isOpen) {
+    card.classList.remove("open");
+    expanded.hidden = true;
+    card.setAttribute("aria-expanded", "false");
+    return;
+  }
+
+  document.querySelectorAll("[data-player-card].open").forEach((openCard) => {
+    openCard.classList.remove("open");
+    openCard.querySelector(".player-expanded").hidden = true;
+    openCard.setAttribute("aria-expanded", "false");
+  });
+
+  const profile = getPlayerProfile(player);
+  expanded.innerHTML = `
+    <div class="profile-photo-placeholder">
+      ${playerImageMarkup(player, "profile-photo")}
+      <small>Снимка скоро</small>
+    </div>
+    <div class="profile-content">
+      <span class="label">Профил</span>
+      <h2>${player.name}</h2>
+      <p>${profile.bio}</p>
+      <div class="profile-stats">
+        <article><span>${percent(winRate(player))}</span><small>Win Rate</small></article>
+        <article><span>${player.wins}/${player.played}</span><small>Победи</small></article>
+        <article><span>${player.mvp}</span><small>MVP</small></article>
+        <article><span>${percent(player.participation)}</span><small>Участие</small></article>
+      </div>
+      <div class="skills-list">
+        ${profile.skills.map((skill) => `<span class="tag">${skill}</span>`).join("")}
+      </div>
+    </div>
+  `;
+
+  expanded.hidden = false;
+  card.classList.add("open");
+  card.setAttribute("aria-expanded", "true");
 }
 
 async function boot() {

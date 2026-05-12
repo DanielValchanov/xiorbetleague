@@ -6,10 +6,10 @@
     <title>Xiorbet Liga</title>
     <meta name="description" content="Начална страница на Xiorbet Liga." />
     <link rel="icon" type="image/svg+xml" href="assets/images/logo.svg" />
-    <link rel="stylesheet" href="assets/css/styles.css" />
+    <link rel="stylesheet" href="assets/css/styles.css?v=photo-cards" />
     <script defer src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
-    <script defer src="assets/js/data.js"></script>
-    <script defer src="assets/js/app.js"></script>
+    <script defer src="assets/js/data.js?v=photo-cards"></script>
+    <script defer src="assets/js/app.js?v=photo-cards"></script>
   </head>
   <body>
     <header class="site-header">
@@ -17,7 +17,6 @@
         <img src="assets/images/logo.jpg" alt="Лого на Xiorbet Liga" />
         <span>
           <strong>Xiorbet Liga</strong>
-          <small>Индивидуално класиране</small>
         </span>
       </a>
       <nav class="top-nav" aria-label="Основна навигация">
@@ -28,7 +27,11 @@
         <a href="players.html">Играчи</a>
       </nav>
       <a class="icon-link" href="https://www.instagram.com/xiorbetliga/" target="_blank" rel="noreferrer">
-        <i data-lucide="instagram"></i>
+        <svg class="instagram-logo" aria-hidden="true" viewBox="0 0 24 24">
+          <rect x="3" y="3" width="18" height="18" rx="5"></rect>
+          <circle cx="12" cy="12" r="4"></circle>
+          <circle cx="17.5" cy="6.5" r="1"></circle>
+        </svg>
         <span>@xiorbetliga</span>
       </a>
     </header>
@@ -90,7 +93,7 @@
         <a class="feature-card" href="players.html">
           <i data-lucide="users"></i>
           <h2>Играчи</h2>
-          <p>Кратък преглед на хората, които носят отговорност за хаоса.</p>
+          <p>Кратък преглед на играчите.</p>
         </a>
       </section>
 
